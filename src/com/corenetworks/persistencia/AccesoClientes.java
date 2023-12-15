@@ -71,19 +71,21 @@ public class AccesoClientes extends Conexion{
         String sql = "DELETE FROM customers WHERE customer_id = ?";
 
         sentencia = miConexion.prepareStatement(sql);
-        sentencia.setString(1, "ANDOR");
+        sentencia.setString(1, "WKLSR");
 
         resultado = sentencia.executeUpdate();
         return resultado > 0;
     }
-    public boolean actualizarNombre(Customers c1) throws SQLException, ClassNotFoundException {
+    public boolean actualizarEmpresa(Customers c1) throws SQLException, ClassNotFoundException {
+        System.out.println(c1.toString());
         PreparedStatement sentencia;
         int resultado = 0;
         String sql = "UPDATE customers SET company_name = ? WHERE customer_id = ?";
         abrirConexion();
 
         sentencia = miConexion.prepareStatement(sql);
-        sentencia.setString(1, c1.getContact_name());
+        sentencia.setString(1, c1.getCompany_name());
+
         sentencia.setString(2, c1.getCustomer_id());
 
         resultado = sentencia.executeUpdate();
